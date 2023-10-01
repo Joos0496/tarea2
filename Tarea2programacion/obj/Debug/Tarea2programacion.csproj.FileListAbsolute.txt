@@ -1,0 +1,7 @@
+C:\Users\XPC\source\repos\Tarea2programacion\Tarea2programacion\bin\Debug\Tarea2programacion.exe.config
+C:\Users\XPC\source\repos\Tarea2programacion\Tarea2programacion\bin\Debug\Tarea2programacion.exe
+C:\Users\XPC\source\repos\Tarea2programacion\Tarea2programacion\bin\Debug\Tarea2programacion.pdb
+C:\Users\XPC\source\repos\Tarea2programacion\Tarea2programacion\obj\Debug\Tarea2programacion.csproj.AssemblyReference.cache
+C:\Users\XPC\source\repos\Tarea2programacion\Tarea2programacion\obj\Debug\Tarea2programacion.csproj.CoreCompileInputs.cache
+C:\Users\XPC\source\repos\Tarea2programacion\Tarea2programacion\obj\Debug\Tarea2programacion.exe
+C:\Users\XPC\source\repos\Tarea2programacion\Tarea2programacion\obj\Debug\Tarea2programacion.pdb
