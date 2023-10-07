@@ -9,6 +9,14 @@ namespace Tarea2programacion
 {
     internal class Program
     {
+       static float precio = 0f;
+        static int cantidad = 0;
+        static float total = 0f;
+       static float precio1 = 20;
+        static float precio2 = 15;
+        static int Carnet = 0;
+        static string Nombre;
+
         static void Main(string[] args)
         {
             int opcion = 0; 
@@ -23,15 +31,27 @@ namespace Tarea2programacion
                 switch (opcion)
                 {
                     case 1: Console.Clear();
-                        Ejercicio1();
+                        Console.WriteLine("cual es el precio de la camisa");
+                        precio = float.Parse(Console.ReadLine());
+
+                        Console.WriteLine("Digite la cantidad");
+                        cantidad = int.Parse(Console.ReadLine());
+                        Ejercicio1(cantidad, precio);
                             break;
 
                     case 2: Console.Clear();
+                        Console.WriteLine("Digite el numero de carnet");
+                        Carnet = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Ingrese el nombre del estudiante");
+                        Nombre = Console.ReadLine();
                         Ejercicio2();
                             break;
 
                     case 3: Console.Clear();
-                        Ejercicio3();
+                        Console.WriteLine("Digite la cantidad");
+                        cantidad = int.Parse(Console.ReadLine());
+                       
+                        Ejercicio3(cantidad);
                         break;
                     default:
                         Console.WriteLine("opcion incorrecta");
@@ -41,16 +61,8 @@ namespace Tarea2programacion
             } while (opcion!=4); // mientras la opcion sea diferente de 4
         }
 
-        public static void Ejercicio1()
+        public static void Ejercicio1(int cantidad, float precio)
         {
-            float precio = 0f;
-            int cantidad = 0;
-            float total = 0f;
-
-            Console.WriteLine("cual es el precio de la camisa");
-            precio = float.Parse(Console.ReadLine());
-            Console.WriteLine("Digite la cantidad");
-            cantidad = int.Parse(Console.ReadLine());
 
             if (cantidad == 1) 
             {
@@ -72,61 +84,55 @@ namespace Tarea2programacion
         }
         public static void Ejercicio2()
         {
-            int Carnet = 0;
-            float quiz1 = 0f;
-            float quiz2 = 0f;
-            float quiz3 = 0f;
-            float tarea1 = 0f;
-            float tarea2 = 0f;
-            float tarea3 = 0f;
-            float examen1 = 0f;
-            float examen2 = 0f;
-            float examen3 = 0f;
-            float Promedio1 = 0f;
-            float Promedio2 = 0f;
-            float Promedio3 = 0f;
-            float porquiz = 0f;
-            float portar = 0f;
-            float porexa = 0f;
-            float promediofinal = 0f;
-       
+            double Promedio1 = 0f, totalq = 0f, porq = 0f;
+            double Promedio2 = 0f, totalt = 0f, porta = 0f;
+            double Promedio3 = 0f, totale = 0f, porex = 0f;
+            double promediofinal = 0f;
 
-            Console.WriteLine("Digite el numero de carnet");
-            Carnet = int.Parse(Console.ReadLine());
-            Console.WriteLine("cual es la nota del quiz 1");
-            quiz1 = float.Parse(Console.ReadLine());
-            Console.WriteLine("cual es la nota del quiz 2");
-            quiz2 = float.Parse(Console.ReadLine());
-            Console.WriteLine("cual es la nota del quiz 3");
-            quiz2 = float.Parse(Console.ReadLine());
-            Console.WriteLine("cual es la nota de la tarea 1");
-            tarea1 = float.Parse(Console.ReadLine());
-            Console.WriteLine("cual es la nota de la tarea 2");
-            tarea2 = float.Parse(Console.ReadLine());
-            Console.WriteLine("cual es la nota de la tarea 3");
-            tarea3 = float.Parse(Console.ReadLine());
-            Console.WriteLine("cual es la nota del examen 1");
-            examen1 = float.Parse(Console.ReadLine());
-            Console.WriteLine("cual es la nota del examen 2");
-            examen2 = float.Parse(Console.ReadLine());
-            Console.WriteLine("cual es la nota del examen 3");
-            examen3 = float.Parse(Console.ReadLine());
+            double[] quiz = new double[3];
+            double[] tarea = new double[3];
+            double[] examen = new double[3];
 
-            Promedio1 = (quiz1 + quiz2 + quiz3);
-            Promedio1 = Promedio1 / 3;
-            porquiz = Promedio1 * 25 / 100;
+            for (int i = 0; i < quiz.Length; i++)
+            {
+                Console.WriteLine("Ingrese la nota del quiz" + (i + 1));
+                quiz[i] = double.Parse(Console.ReadLine());
 
-            Promedio2 = (tarea1 + tarea2 + tarea3);
-            Promedio2 = Promedio2 / 3;
-            portar = Promedio2 * 30 / 100;
+                totalq = totalq + quiz[i];
 
-            Promedio3 = (examen1 + examen2 + examen3);
-            Promedio3 = Promedio3 / 3;
-            porexa = Promedio3 * 45 / 100;
+            }
+            for (int i = 0; i < tarea.Length; i++)
+            {
+                Console.WriteLine("Ingrese la nota de la tarea" + (i + 1));
+                tarea[i] = double.Parse(Console.ReadLine());
 
-            promediofinal = (porquiz + portar + porexa);
+                totalt = totalt + tarea[i];
+            }
+            for (int i = 0; i < examen.Length; i++)
+            {
+                Console.WriteLine("Ingrese la nota del examen" + (i + 1));
+                examen[i] = double.Parse(Console.ReadLine());
 
-            Console.WriteLine($" El promedio final de: {Carnet} es: {promediofinal}");
+                totale = totale + examen[i];
+            }
+
+            Promedio1 = totalq / quiz.Length;
+            porq = Promedio1 * 25 / 100;
+
+            Promedio2 = totalt / tarea.Length;
+            porta = Promedio2 * 45/ 100;
+
+            Promedio3 = totale / examen.Length;
+            porex = Promedio3 * 30 / 100;
+
+            promediofinal = porq + porta + porex;
+
+            Console.Clear();
+
+            Console.WriteLine($" El promedio final del estudiante: {Nombre} Carnet: {Carnet} es de : {promediofinal}");
+            Console.WriteLine("El porcentaje de los quiz es: " + porq);
+            Console.WriteLine("El porcentaje de las tareas es: " + porta);
+            Console.WriteLine("El porcentaje de los examenes es: " + porex);
 
             if (promediofinal >= 70)
             {
@@ -141,27 +147,23 @@ namespace Tarea2programacion
                 Console.WriteLine($" El estudiante esta Reprobado");
             }
 
-           
         }
-        public static void Ejercicio3()
+        public static void Ejercicio3(int cantidad)
         {
-            int precio1 = 20;
-            int precio2 = 15;
-            int cantidad = 0;
-            float total = 0f;
-
-            Console.WriteLine("Digite la cantidad");
-            cantidad = int.Parse (Console.ReadLine());
 
             if (cantidad <= 10) 
             {
                 total = (cantidad * precio1);
                 Console.WriteLine($" total a pagar es de {total}");
+
+                Console.ReadKey();  
             }
             else if (cantidad > 10) 
             {
                 total = (cantidad * precio2);
                 Console.WriteLine($" total a pagar es de {total}");
+
+                Console.ReadKey(); //para que no aparesca el menu//
                 
             }
                 {
